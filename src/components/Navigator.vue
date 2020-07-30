@@ -1,20 +1,12 @@
-<!-- 主页的组件 -->
+<!--  -->
 <template>
-<div class='home'>
-  <!-- 主页header开始 -->
-  <div class="tt-home-header">
-    <span>头条</span>
-  </div>
-  <!-- 主页header结束 -->
-  <!-- 主页内容开始 -->
-  <div class="tt-home-content">
-    <div class="home-content-left">
-      <Navigator/>
-    </div>
-    <div class="home-content-middle">中间</div>
-    <div class="home-content-right">右边</div>
-  </div>
-  <!-- 主页内容结束 -->
+<div class='app-home-navigator'>
+    <h1>头条</h1>
+    <section class="nav-list">
+        <section class="nav-item" v-for="item,index in navs" :key="item.id">
+            {{item.text}}
+        </section>
+    </section>
 </div>
 </template>
 
@@ -22,16 +14,26 @@
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
 
-import Navigator from "../components/Navigator"
 export default {
 //import引入的组件需要注入到对象中才能使用
-components: {
-  Navigator,
-},
+components: {},
 data() {
 //这里存放数据
 return {
-
+    navs:[
+        {id:1, text:"推荐"},
+        {id:2, text:"西瓜视频"},
+        {id:3, text:"财经"},
+        {id:4, text:"热点"},
+        {id:5, text:"直播"},
+        {id:6, text:"图片"},
+        {id:7, text:"科技"},
+        {id:8, text:"娱乐"},
+        {id:9, text:"游戏"},
+        {id:10, text:"体育"},
+        {id:11, text:"懂车帝"},
+        {id:12, text:"热点"}
+    ]
 };
 },
 //监听属性 类似于data概念
@@ -60,31 +62,26 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 }
 </script>
 <style lang="less" scoped>
-.tt-home-header {
-  width: 100%;
-  height: 30px;
-  background: #000;
-  span {
+h1 {
     font-size: 18px;
-    color: #ccc;
-    margin-left: 5px;
-  }
+   text-align: center;
+   color: #cc0000;
 }
-.tt-home-content {
-  width: 80vw;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  .home-content-left {
-    flex: 1;
-  }
 
-  .home-content-middle {
-    flex: 3;
+.nav-list {
+   text-align: center;
+  .nav-item {
+      height: 30px;
+      line-height: 30px;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #fff;
+      color: #000;
+      transition: background-color .4s,color .4s;
   }
-
-  .home-content-right {
-    flex: 2;
+  .nav-item:hover{
+      background-color: #cc0000;
+      color: #fff;
   }
 }
 </style>
