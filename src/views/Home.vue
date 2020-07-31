@@ -47,8 +47,17 @@ created() {
 
 },
 //生命周期 - 挂载完成（可以访问DOM元素）
-mounted() {
-
+// 用async await 异步改同步
+async mounted() {
+  let res = await this.$axios.get("/getArticles",{
+    params:{
+      lastid:0,
+      type:"TT",
+      page:1,
+      number:20
+    }
+  })
+  console.log(res)
 },
 beforeCreate() {}, //生命周期 - 创建之前
 beforeMount() {}, //生命周期 - 挂载之前
