@@ -71,8 +71,8 @@ h1 {
 .nav-list {
    text-align: center;
   .nav-item {
-      height: 30px;
-      line-height: 30px;
+      height: 40px;
+      line-height: 40px;
       border-radius: 5px;
       cursor: pointer;
       background-color: #fff;
